@@ -94,7 +94,7 @@ class UserHistory:
         if word_struct['word'] in self.latest_word:
             return
         else:
-            with open('./usr/' + notename + '.txt', 'a+') as f:
+            with open('./usr/' + notename + '.txt', 'a+', encoding='utf-8') as f:
                 space1 = ' '*(20 - len(word_struct['word'])) + ' '
                 pn = ''
                 if '' in word_struct['pronunciation']:

@@ -19,7 +19,7 @@ class JsonReader:
                 self.__index_dict[prev_word] = (int(prev_no), int(no) - int(prev_no))
                 prev_word, prev_no = word, no
             self.__index_dict[word] = (int(no), f.tell() - int(no))
-        with open(self.ZH_INDEX_FILE_NAME, 'r') as f:
+        with open(self.ZH_INDEX_FILE_NAME, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             prev_word, prev_no = lines[0].split('|')
             for v in lines[1:]:
@@ -56,7 +56,7 @@ class JsonReader:
                 return None
 
     def get_zh_word_info(self, query_word):
-        with open(self.ZH_FILE_NAME, 'rb') as f:
+        with open(self.ZH_FILE_NAME, 'rb', encoding='utf-8') as f:
             if query_word in self.__zh_index_dict:
                 word_offset = self.__zh_index_dict[query_word]
                 f.seek(word_offset[0])
